@@ -1,5 +1,6 @@
 "use strict";
 
+
 const listaDePalabras = ["botella", "escritorio", "paraguas", "chimpance"];
 let palabraAdivinar = [];
 let palabraMostrar = [];
@@ -14,3 +15,4 @@ function prepJuego() {
 
   palabraAdivinar = palabraAleatoria.split("");
 }
+
