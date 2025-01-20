@@ -3,7 +3,7 @@
 const listaDePalabras = ["botella", "escritorio", "paraguas", "chimpance"];
 const palabraOcultaDiv = document.getElementById("palabraOculta");
 const intentosRestantesDiv = document.getElementById("intentosRestantes");
-const botonesTeclado = document.querySelectorAll(".tecla"); 
+const botonesTeclado = document.querySelectorAll(".tecla");
 
 let palabraAdivinar = [];
 let palabraMostrar = [];
@@ -20,7 +20,7 @@ let palabrasPorGuiones = function prepJuego() {
   console.log(letrasCorrectas);
   mostrarLineas(palabraAdivinar);
   actualizarIntentos();
-}
+};
 prepJuego();
 
 function mostrarLineas(palabra) {
@@ -36,7 +36,5 @@ function mostrarLineas(palabra) {
 function actualizarIntentos() {
   intentosRestantesDiv.textContent = `Intentos restantes: ${intentosRestantes}`;
 }
-=======
-  palabraAdivinar = palabraAleatoria.split("");
-};
 
+palabraAdivinar = palabraAleatoria.split("");
