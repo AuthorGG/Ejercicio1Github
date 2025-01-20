@@ -20,7 +20,7 @@ function prepJuego() {
   console.log(letrasCorrectas);
   mostrarLineas(palabraAdivinar);
   actualizarIntentos();
-};
+}
 prepJuego();
 
 function mostrarLineas(palabra) {
