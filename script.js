@@ -46,6 +46,7 @@ function prepJuego() {
   const palabraAleatoria = listaDePalabras[pickListaPalabras].toUpperCase();
   console.log(palabraAleatoria);
   palabraAdivinar = palabraAleatoria.split("");
+  console.log(palabraAdivinar);
   let letrasCorrectas = Array(palabraAdivinar.length).fill("");
   console.log(letrasCorrectas);
   mostrarLineas(palabraAdivinar);
@@ -66,5 +67,3 @@ function mostrarLineas(palabra) {
 function actualizarIntentos() {
   intentosRestantesDiv.textContent = `Intentos restantes: ${intentosRestantes}`;
 }
-
-console.log(logLetrasUser);

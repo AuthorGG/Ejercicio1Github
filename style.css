@@ -18,7 +18,7 @@ letra {
 
 #teclado {
   display: grid;
-  grid-template-columns: repeat(9, 1fr); /* Dividimos en 9 columnas */
+  grid-template-columns: repeat(9, 1fr);
   gap: 8px;
   max-width: 300px;
   margin: 20px auto;
