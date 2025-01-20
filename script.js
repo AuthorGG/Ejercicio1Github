@@ -1,10 +1,8 @@
 "use strict";
 
 const listaDePalabras = ["botella", "escritorio", "paraguas", "chimpance"];
-const palabraOcultaDiv = document.getElementById("palabraOculta");
+const palabraOcultaDiv = document.getElementById("palabra-oculta");
 const intentosRestantesDiv = document.getElementById("intentosRestantes");
-const botonesTeclado = document.querySelectorAll(".tecla");
-const botonReiniciar = document.querySelectorById("reiniciar");
 
 let palabraAdivinar = [];
 let palabraMostrar = [];
@@ -47,6 +45,7 @@ function prepJuego() {
   const palabraAleatoria = listaDePalabras[pickListaPalabras].toUpperCase();
   console.log(palabraAleatoria);
   palabraAdivinar = palabraAleatoria.split("");
+  console.log(palabraAdivinar);
   let letrasCorrectas = Array(palabraAdivinar.length).fill("");
   console.log(letrasCorrectas);
   mostrarLineas(palabraAdivinar);
