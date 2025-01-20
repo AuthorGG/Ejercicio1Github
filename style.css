@@ -16,7 +16,22 @@ letra {
   color: rgb(190, 12, 12);
 }
 
+
+.tecla:hover {
+  background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+  transform: scale(1.05);
+  color: black;
+}
+
+.tecla:active {
+  background-color: #322891;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.teclado {
+
 #teclado {
+main
   display: grid;
   grid-template-columns: repeat(9, 1fr); /* Dividimos en 9 columnas */
   gap: 8px;
