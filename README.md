@@ -1,6 +1,16 @@
-Estas son pruebas para aprender a usar GITHUB
+Instrucciones del juego
 
-vamos a necesitar varios pasos:
+Al hacer click en "Generar palabra", se generará una palabra aleatoria oculta.
 
-//1.- necesitamos las imagenes del ahorcado, paso a paso, primero sin nada y luego por cada fallo (establecer limite de intentos) una iamgen por parte del cuerpo.
-2.- hecho el array de letras y la funcion que elige una para iniciar el juego
+Haz clic en las letras del teclado virtual para intentar adivinar la palabra.
+
+Cada letra correcta se mostrará en su posición correspondiente.
+
+Cada letra incorrecta reducirá el número de intentos restantes y se mostrará en una lista de "letras usadas".
+
+El juego terminará cuando:
+
+Descubras todas las letras de la palabra (Ganaste).
+
+Te quedes sin intentos (Perdiste).
+

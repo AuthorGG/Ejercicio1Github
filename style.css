@@ -1,15 +1,16 @@
 * {
   margin: 0;
   padding: 0;
-  border: 0;
   box-sizing: border-box;
 }
+
 
 letra {
   border: 10px;
   margin: 100px;
   color: rgb(190, 12, 12);
 }
+
 .teclado {
   display: grid;
   grid-template-columns: repeat(9, 1fr); /* Dividimos en 9 columnas */
@@ -32,3 +33,6 @@ letra {
   background-color: #ddd;
   color: black;
 }
+
+
+
