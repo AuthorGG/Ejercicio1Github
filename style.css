@@ -9,7 +9,6 @@ h1 {
   font-size: 60px;
   text-shadow: 2px 2px 4px gray;
 }
-
 letra {
   border: 10px;
   margin: 100px;
@@ -55,14 +54,12 @@ letra {
   max-width: 100px;
   margin: 0 auto;
 }
-
 .palabra-oculta {
   display: flex;
   justify-content: center;
   gap: 15px;
   margin: 20px 0;
 }
-
 .palabra-oculta div {
   font-size: 24px;
   font-weight: bold;

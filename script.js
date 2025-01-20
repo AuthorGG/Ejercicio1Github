@@ -5,6 +5,7 @@ const palabraOcultaDiv = document.getElementById("palabra-oculta");
 const intentosRestantesDiv = document.getElementById("intentosRestantes");
 const botonesTeclado = document.querySelectorAll(".tecla");
 
+
 let palabraAdivinar = [];
 let palabraMostrar = [];
 let logLetrasUser = [];
