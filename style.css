@@ -16,42 +16,38 @@ letra {
   color: rgb(190, 12, 12);
 }
 
-
-.tecla:hover {
-  background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
-  transform: scale(1.05);
-  color: black;
-}
-
-.tecla:active {
-  background-color: #322891;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-
-.teclado {
-
 #teclado {
-main
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   gap: 8px;
   max-width: 300px;
   margin: 20px auto;
 }
+/* Botones con estilos */
 .tecla {
-  padding: 10px;
-  font-size: 16px;
+  padding: 12px;
+  font-size: 18px;
   color: white;
   text-align: center;
   cursor: pointer;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #322891;
-  transition: background-color 0.5s ease;
+  border: 2px solid #322891; /* Bordes más profundos y visibles */
+  border-radius: 8px;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease, transform 0.2s ease;
 }
+
+/* Hover Effect para botones */
 .tecla:hover {
-  background-color: #ddd;
+  background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+  transform: scale(1.05);
   color: black;
+}
+
+/* Hacer los bordes visibles */
+.tecla:active {
+  background-color: #322891;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 #ahorcado .parte {
