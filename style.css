@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 
-
 letra {
   border: 10px;
   margin: 100px;
@@ -27,12 +26,26 @@ letra {
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #322891;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.5s ease;
 }
 .teclado button:hover {
   background-color: #ddd;
   color: black;
 }
 
+.palabra-oculta {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
 
-
+.palabra-oculta div {
+  font-size: 24px;
+  font-weight: bold;
+  border-bottom: 2px solid #000;
+  width: 30px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
