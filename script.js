@@ -4,6 +4,7 @@ const listaDePalabras = ["botella", "escritorio", "paraguas", "chimpance"];
 const palabraOcultaDiv = document.getElementById("palabraOculta");
 const intentosRestantesDiv = document.getElementById("intentosRestantes");
 const botonesTeclado = document.querySelectorAll(".tecla");
+const botonReiniciar = document.querySelectorById("reiniciar");
 
 let palabraAdivinar = [];
 let palabraMostrar = [];
@@ -20,7 +21,7 @@ function prepJuego() {
   console.log(letrasCorrectas);
   mostrarLineas(palabraAdivinar);
   actualizarIntentos();
-};
+}
 prepJuego();
 
 function mostrarLineas(palabra) {
