@@ -12,5 +12,4 @@ El juego terminará cuando:
 
 Descubras todas las letras de la palabra (Ganaste).
 
-Te quedes sin intentos (Perdiste).
-
+Te quedes sin intentos (Has perdido).
