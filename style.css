@@ -16,6 +16,7 @@ letra {
   color: rgb(190, 12, 12);
 }
 
+
 .tecla:hover {
   background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
   transform: scale(1.05);
@@ -28,13 +29,16 @@ letra {
 }
 
 .teclado {
+
+#teclado {
+main
   display: grid;
   grid-template-columns: repeat(9, 1fr); /* Dividimos en 9 columnas */
-  gap: 10px;
+  gap: 8px;
   max-width: 300px;
   margin: 20px auto;
 }
-.teclado button {
+.tecla {
   padding: 10px;
   font-size: 16px;
   color: white;
@@ -43,9 +47,9 @@ letra {
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #322891;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.5s ease;
 }
-.teclado button:hover {
+.tecla:hover {
   background-color: #ddd;
   color: black;
 }
@@ -54,4 +58,21 @@ letra {
   display: none;
   max-width: 100px;
   margin: 0 auto;
+}
+
+.palabra-oculta {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.palabra-oculta div {
+  font-size: 24px;
+  font-weight: bold;
+  border-bottom: 2px solid #000;
+  width: 30px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
 }
