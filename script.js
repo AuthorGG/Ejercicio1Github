@@ -2,6 +2,7 @@
 
 
 const listaDePalabras = ["botella", "escritorio", "paraguas", "chimpance"];
+
 let palabraAdivinar = [];
 let palabraMostrar = [];
 let logLetrasUser = [];
