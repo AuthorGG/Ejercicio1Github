@@ -4,6 +4,7 @@ const listaDePalabras = ["botella", "escritorio", "paraguas", "chimpance"];
 const palabraOcultaDiv = document.getElementById("palabra-oculta");
 const intentosRestantesDiv = document.getElementById("intentosRestantes");
 const botonesTeclado = document.querySelectorAll(".tecla");
+const botonReiniciar = document.querySelectorById("reiniciar");
 
 let palabraAdivinar = [];
 let palabraMostrar = [];
