@@ -10,7 +10,7 @@ let palabraMostrar = [];
 let logLetrasUser = [];
 let intentosRestantes = 6;
 
-let palabrasPorGuiones = function prepJuego() {
+function prepJuego() {
   let pickListaPalabras = Math.floor(Math.random() * listaDePalabras.length);
   console.log(pickListaPalabras);
   const palabraAleatoria = listaDePalabras[pickListaPalabras].toUpperCase();
@@ -36,5 +36,3 @@ function mostrarLineas(palabra) {
 function actualizarIntentos() {
   intentosRestantesDiv.textContent = `Intentos restantes: ${intentosRestantes}`;
 }
-
-palabraAdivinar = palabraAleatoria.split("");
