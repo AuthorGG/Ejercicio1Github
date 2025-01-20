@@ -47,6 +47,7 @@ function prepJuego() {
   const palabraAleatoria = listaDePalabras[pickListaPalabras].toUpperCase();
   console.log(palabraAleatoria);
   palabraAdivinar = palabraAleatoria.split("");
+  console.log(palabraAdivinar);
   let letrasCorrectas = Array(palabraAdivinar.length).fill("");
   console.log(letrasCorrectas);
   mostrarLineas(palabraAdivinar);
