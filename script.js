@@ -45,6 +45,16 @@ function procesarLetra(letra) {
     intentosRestantes--;
     logLetrasUser.push(letra);
     actualizarIntentos();
+    enseñarAhorcado();
+  }
+}
+
+function enseñarAhorcado() {
+  const partes = document.querySelectorAll(".parte");
+  const indice = 5 - intentosRestantes;
+  partes.forEach((parte) => (parte.style.display = "none"));
+  if (indice >= 0 && indice < partes.length) {
+    partes[indice].style.display = "block";
   }
 }
 
