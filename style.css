@@ -45,6 +45,9 @@ letra {
   background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   transition: background 0.3s ease, transform 0.2s ease;
+  width: 50px;
+  height: 60px;
+  display: inline-block;
 }
 
 /* Hover Effect para botones */
@@ -88,6 +91,9 @@ letra {
   border: 2px solid #ccc;
   border-radius: 8px;
   text-align: center;
+  width: 50px;
+  height: 60px;
+  display: inline-block;
 }
 
 .incorrecta {
@@ -98,6 +104,9 @@ letra {
   border: 2px solid #ccc;
   border-radius: 8px;
   text-align: center;
+  width: 50px;
+  height: 60px;
+  display: inline-block;
 }
 
 button:disabled {
