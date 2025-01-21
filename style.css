@@ -122,7 +122,7 @@ button:disabled {
   bottom: 5px; /* Separación desde la parte inferior */
 }
 
-/*Responsive*/
+/*Responsive @media*/
 @media (max-width: 600px) {
   h1 {
     font-size: 40px;
