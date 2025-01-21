@@ -125,7 +125,7 @@ button:disabled {
 /*Responsive*/
 @media (max-width: 600px) {
   h1 {
-    font-size: 40px; //título más pequeño
+    font-size: 40px;
   }
 
   #teclado {
@@ -143,4 +143,4 @@ button:disabled {
     height: 35px;
     line-height: 35px;
   }
-  
+}
