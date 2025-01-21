@@ -133,7 +133,7 @@ button:disabled {
   bottom: 5px; /* Separación desde la parte inferior */
 }
 
-/*Responsive @media*/
+/* Responsive @media
 @media (max-width: 600px) {
   h1 {
     font-size: 40px;
@@ -154,4 +154,4 @@ button:disabled {
     height: 35px;
     line-height: 35px;
   }
-}
+} */
