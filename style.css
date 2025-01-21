@@ -93,3 +93,25 @@ button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 40px; //título más pequeño
+  }
+
+  #teclado {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 100%;
+  }
+
+  .tecla {
+    font-size: 16px;
+    padding: 10px;
+  }
+  .palabra-oculta div {
+    font-size: 20px;
+    width: 25px;
+    height: 35px;
+    line-height: 35px;
+  }
+}
