@@ -10,7 +10,8 @@ let palabraMostrar = [];
 let logLetrasUser = [];
 let intentosRestantes = 6;
 let botonInicio = document.querySelector("#inicio");
-console.log(botonInicio);
+let botonReiniciar = document.querySelector("#reinicio");
+console.log(botonReiniciar);
 
 botonesTeclado.forEach((boton) => {
   boton.addEventListener("click", () => {
@@ -53,6 +54,25 @@ function actualizarPalabra() {
     letrasDivs[index].textContent = letr;
   });
 }
+function reiniciarJuego() {
+  intentosRestantes = 6;
+  let pickListaPalabras = Math.floor(Math.random() * listaDePalabras.length);
+  console.log(pickListaPalabras);
+  const palabraAleatoria = listaDePalabras[pickListaPalabras].toUpperCase();
+  console.log(palabraAleatoria);
+  palabraAdivinar = palabraAleatoria.split("");
+  console.log(palabraAdivinar);
+  let letrasCorrectas = Array(palabraAdivinar.length).fill("");
+  console.log(letrasCorrectas);
+
+  botonesTeclado.forEach((boton) => {
+    boton.disabled = false;
+    boton.classList.remove("correcta", "incorrecta");
+    boton.classList.add("tecla");
+  });
+  mostrarLineas(palabraAdivinar);
+  actualizarIntentos();
+}
 
 function prepJuego() {
   intentosRestantes = 6;
@@ -89,3 +109,5 @@ function actualizarIntentos() {
 }
 
 botonInicio.addEventListener("click", prepJuego); //al hacerle click al botón con clase Inicio genera una palabra y empieza el juego
+
+botonReiniciar.addEventListener("click", reiniciarJuego);
