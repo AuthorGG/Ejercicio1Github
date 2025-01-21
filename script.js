@@ -61,6 +61,7 @@ function reiniciarJuego() {
   const palabraAleatoria = listaDePalabras[pickListaPalabras].toUpperCase();
   console.log(palabraAleatoria);
   palabraAdivinar = palabraAleatoria.split("");
+  palabraMostrar = Array(palabraAdivinar.length).fill("");
   console.log(palabraAdivinar);
   let letrasCorrectas = Array(palabraAdivinar.length).fill("");
   console.log(letrasCorrectas);
@@ -81,15 +82,16 @@ function prepJuego() {
   const palabraAleatoria = listaDePalabras[pickListaPalabras].toUpperCase();
   console.log(palabraAleatoria);
   palabraAdivinar = palabraAleatoria.split("");
+  palabraMostrar = Array(palabraAdivinar.length).fill("");
   console.log(palabraAdivinar);
   let letrasCorrectas = Array(palabraAdivinar.length).fill("");
   console.log(letrasCorrectas);
 
-  botonesTeclado.forEach((boton) => {
-    boton.disabled = false;
-    boton.classList.remove("correcta", "incorrecta");
-    boton.classList.add("tecla");
-  });
+  // botonesTeclado.forEach((boton) => {
+  //   boton.disabled = false;
+  //   boton.classList.remove("correcta", "incorrecta");
+  //   boton.classList.add("tecla");
+  // });
   mostrarLineas(palabraAdivinar);
   actualizarIntentos();
 }
