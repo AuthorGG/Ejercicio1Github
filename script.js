@@ -1,25 +1,37 @@
 "use strict";
 
-const listaDePalabras = [
-  "botella",
-  "escritorio",
-  "paraguas",
-  "chimpance",
-  "televisor",
-  "murcielago",
-  "muñeco",
-];
+const palabrasPorCategoria = {
+  animales: ["perro", "gato", "murcielago", "elefante", "tigre"],
+  objetos: ["botella", "escritorio", "paraguas", "televisor", "laptop"],
+  lugares: ["playa", "desierto", "montaña", "bosque", "ciudad"],
+};
+
+let listaDePalabras = [];
 const palabraOcultaDiv = document.getElementById("palabra-oculta");
 const intentosRestantesDiv = document.getElementById("intentosRestantes");
 const botonesTeclado = document.querySelectorAll(".tecla");
-const botonInicio = document.querySelector("#inicio");
-const botonReiniciar = document.querySelector("#reinicio");
-console.log(botonReiniciar);
 
 let palabraAdivinar = [];
 let palabraMostrar = [];
 let logLetrasUser = [];
 let intentosRestantes = 6;
+
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("modal");
+  const closeModalButton = document.getElementById("close-modal");
+  const categoriaSeleccion = document.getElementById("categoria-seleccion");
+
+  // Mostrar el modal al cargar
+  modal.style.display = "flex";
+
+  // Cerrar el modal y seleccionar categoría
+  closeModalButton.addEventListener("click", () => {
+    const categoriaElegida = categoriaSeleccion.value;
+    listaDePalabras = palabrasPorCategoria[categoriaElegida];
+    modal.style.display = "none";
+    prepJuego(); // Inicia el juego
+  });
+});
 
 botonesTeclado.forEach((boton) => {
   boton.addEventListener("click", () => {
@@ -36,8 +48,8 @@ botonesTeclado.forEach((boton) => {
     procesarLetra(letra);
   });
   botonesTeclado.forEach((boton) => {
-    boton.disabled = false; // Habilita el botón
-    boton.classList.remove("correcta", "incorrecta"); // Elimina las clases de estilo
+    boton.disabled = false;
+    boton.classList.remove("correcta", "incorrecta");
   });
 });
 
@@ -52,9 +64,14 @@ function mostrarPopup(mensaje) {
 
   cerrarPopup.addEventListener("click", () => {
     popup.style.display = "none";
+    mostrarModalInicial();
   });
 }
 
+function mostrarModalInicial() {
+  const modal = document.getElementById("modal");
+  modal.style.display = "flex";
+}
 // Cerrar el popup si está abierto
 const popup = document.getElementById("mensaje-popup");
 popup.style.display = "none";
@@ -125,7 +142,8 @@ function reiniciarJuego() {
   console.log(palabraAdivinar);
   let letrasCorrectas = Array(palabraAdivinar.length).fill("");
   console.log(letrasCorrectas);
-
+  // const modal = document.getElementById("modal");
+  // modal.style.display = "flex";
   botonesTeclado.forEach((boton) => {
     boton.disabled = false;
     boton.classList.remove("correcta", "incorrecta");
@@ -148,11 +166,6 @@ function prepJuego() {
   let letrasCorrectas = Array(palabraAdivinar.length).fill("");
   console.log(letrasCorrectas);
 
-  // botonesTeclado.forEach((boton) => {
-  //   boton.disabled = false;
-  //   boton.classList.remove("correcta", "incorrecta");
-  //   boton.classList.add("tecla");
-  // });
   mostrarLineas(palabraAdivinar);
   actualizarIntentos();
 }
@@ -190,7 +203,3 @@ function reiniciarAhorcado() {
     parte.style.display = "none"; // Oculta cada parte
   });
 }
-
-botonInicio.addEventListener("click", prepJuego); //al hacerle click al botón con clase Inicio genera una palabra y empieza el juego
-
-botonReiniciar.addEventListener("click", reiniciarJuego);
