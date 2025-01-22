@@ -116,6 +116,20 @@ function mostrarLineas(palabra) {
   });
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("modal");
+  const closeModalButton = document.getElementById("close-modal");
+
+  // Mostrar el modal
+  modal.style.display = "flex";
+
+  // Cerrar el modal al hacer clic en el botón
+  closeModalButton.addEventListener("click", () => {
+    modal.style.display = "none";
+    prepJuego(); // Inicia el juego
+  });
+});
+
 function actualizarIntentos() {
   intentosRestantesDiv.textContent = `Intentos restantes: ${intentosRestantes}`;
 }
