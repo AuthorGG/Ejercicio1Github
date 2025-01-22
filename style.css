@@ -63,6 +63,16 @@ letra {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+#ahorcado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100px;
+  height: 200px;
+  margin: 20px auto;
+}
+
 #ahorcado .parte {
   display: none;
   max-width: 100px;
