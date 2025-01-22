@@ -1,17 +1,25 @@
 "use strict";
 
-const listaDePalabras = ["botella", "escritorio", "paraguas", "chimpance"];
+const listaDePalabras = [
+  "botella",
+  "escritorio",
+  "paraguas",
+  "chimpance",
+  "televisor",
+  "murcielago",
+  "muñeco",
+];
 const palabraOcultaDiv = document.getElementById("palabra-oculta");
 const intentosRestantesDiv = document.getElementById("intentosRestantes");
 const botonesTeclado = document.querySelectorAll(".tecla");
+const botonInicio = document.querySelector("#inicio");
+const botonReiniciar = document.querySelector("#reinicio");
+console.log(botonReiniciar);
 
 let palabraAdivinar = [];
 let palabraMostrar = [];
 let logLetrasUser = [];
 let intentosRestantes = 6;
-let botonInicio = document.querySelector("#inicio");
-let botonReiniciar = document.querySelector("#reinicio");
-console.log(botonReiniciar);
 
 botonesTeclado.forEach((boton) => {
   boton.addEventListener("click", () => {
@@ -33,26 +41,23 @@ botonesTeclado.forEach((boton) => {
   });
 });
 
-// function procesarLetra(letra) {
-//   if (palabraAdivinar.includes(letra)) {
-//     palabraAdivinar.forEach((letr, index) => {
-//       if (letr === letra) {
-//         palabraMostrar[index] = letra;
-//       }
-//     });
-//     actualizarPalabra();
-//   } else {
-//     if (intentosRestantes > 0) {
-//       intentosRestantes--;
-//       logLetrasUser.push(letra);
-//       actualizarIntentos();
-//       enseñarAhorcado();
-//     }
-//     if (intentosRestantes === 0) {
-//       alert("LO SIENTO! NO HAY MÁS INTENTOS!");
-//     }
-//   }
-// }
+// Función para mostrar el popup
+function mostrarPopup(mensaje) {
+  const popup = document.getElementById("mensaje-popup");
+  const mensajeResultado = document.getElementById("mensaje-resultado");
+  const cerrarPopup = document.getElementById("cerrar-popup");
+
+  mensajeResultado.textContent = mensaje;
+  popup.style.display = "flex";
+
+  cerrarPopup.addEventListener("click", () => {
+    popup.style.display = "none";
+  });
+}
+
+// Cerrar el popup si está abierto
+const popup = document.getElementById("mensaje-popup");
+popup.style.display = "none";
 
 function procesarLetra(letra) {
   if (palabraAdivinar.includes(letra)) {
@@ -64,7 +69,7 @@ function procesarLetra(letra) {
     actualizarPalabra();
 
     if (palabraMostrar.join("") === palabraAdivinar.join("")) {
-      alert("ENHORABUENA!! HAS ACERTADO!!");
+      mostrarPopup("¡Enhorabuena! ¡Has acertado! 🎉");
       finalizarJuego(); // Detener el juego al acertar
     }
   } else {
@@ -76,8 +81,8 @@ function procesarLetra(letra) {
     }
 
     if (intentosRestantes === 0) {
-      alert(
-        `LO SIENTO! NO HAY MÁS INTENTOS. LA PALABRA ERA: ${palabraAdivinar.join(
+      mostrarPopup(
+        `¡Lo siento! No hay más intentos. 😞 La palabra oculta era: ${palabraAdivinar.join(
           ""
         )}`
       );
