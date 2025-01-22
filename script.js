@@ -70,7 +70,8 @@ function procesarLetra(letra) {
 
     if (palabraMostrar.join("") === palabraAdivinar.join("")) {
       mostrarPopup("¡Enhorabuena! ¡Has acertado! 🎉");
-      finalizarJuego(); // Detener el juego al acertar
+      finalizarJuego();
+      reiniciarJuego();
     }
   } else {
     if (intentosRestantes > 0) {
@@ -87,6 +88,7 @@ function procesarLetra(letra) {
         )}`
       );
       finalizarJuego();
+      reiniciarJuego();
     }
   }
 }
@@ -131,6 +133,7 @@ function reiniciarJuego() {
   });
   mostrarLineas(palabraAdivinar);
   actualizarIntentos();
+  reiniciarAhorcado();
 }
 
 function prepJuego() {
@@ -180,6 +183,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function actualizarIntentos() {
   intentosRestantesDiv.textContent = `Intentos restantes: ${intentosRestantes}`;
+}
+function reiniciarAhorcado() {
+  const partesAhorcado = document.querySelectorAll("#ahorcado .parte");
+  partesAhorcado.forEach((parte) => {
+    parte.style.display = "none"; // Oculta cada parte
+  });
 }
 
 botonInicio.addEventListener("click", prepJuego); //al hacerle click al botón con clase Inicio genera una palabra y empieza el juego
