@@ -33,6 +33,27 @@ botonesTeclado.forEach((boton) => {
   });
 });
 
+// function procesarLetra(letra) {
+//   if (palabraAdivinar.includes(letra)) {
+//     palabraAdivinar.forEach((letr, index) => {
+//       if (letr === letra) {
+//         palabraMostrar[index] = letra;
+//       }
+//     });
+//     actualizarPalabra();
+//   } else {
+//     if (intentosRestantes > 0) {
+//       intentosRestantes--;
+//       logLetrasUser.push(letra);
+//       actualizarIntentos();
+//       enseñarAhorcado();
+//     }
+//     if (intentosRestantes === 0) {
+//       alert("LO SIENTO! NO HAY MÁS INTENTOS!");
+//     }
+//   }
+// }
+
 function procesarLetra(letra) {
   if (palabraAdivinar.includes(letra)) {
     palabraAdivinar.forEach((letr, index) => {
@@ -41,6 +62,11 @@ function procesarLetra(letra) {
       }
     });
     actualizarPalabra();
+
+    if (palabraMostrar.join("") === palabraAdivinar.join("")) {
+      alert("ENHORABUENA!! HAS ACERTADO!!");
+      finalizarJuego(); // Detener el juego al acertar
+    }
   } else {
     if (intentosRestantes > 0) {
       intentosRestantes--;
@@ -48,10 +74,22 @@ function procesarLetra(letra) {
       actualizarIntentos();
       enseñarAhorcado();
     }
+
     if (intentosRestantes === 0) {
-      alert("LO SIENTO! NO HAY MÁS INTENTOS!");
+      alert(
+        `LO SIENTO! NO HAY MÁS INTENTOS. LA PALABRA ERA: ${palabraAdivinar.join(
+          ""
+        )}`
+      );
+      finalizarJuego();
     }
   }
+}
+
+function finalizarJuego() {
+  botonesTeclado.forEach((boton) => {
+    boton.disabled = true;
+  });
 }
 
 function enseñarAhorcado() {
