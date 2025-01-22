@@ -42,10 +42,15 @@ function procesarLetra(letra) {
     });
     actualizarPalabra();
   } else {
-    intentosRestantes--;
-    logLetrasUser.push(letra);
-    actualizarIntentos();
-    enseñarAhorcado();
+    if (intentosRestantes > 0) {
+      intentosRestantes--;
+      logLetrasUser.push(letra);
+      actualizarIntentos();
+      enseñarAhorcado();
+    }
+    if (intentosRestantes === 0) {
+      alert("LO SIENTO! NO HAY MÁS INTENTOS!");
+    }
   }
 }
 
