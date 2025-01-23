@@ -119,7 +119,14 @@ document.addEventListener("keydown", (evento) => {
 });
 
 function procesarLetra(letra) {
+  const botonCorrespondiente = Array.from(botonesTeclado).find(
+    (boton) => boton.textContent === letra
+  );
+
   if (palabraAdivinar.includes(letra)) {
+    // Añade la clase correcta al botón
+    if (botonCorrespondiente) botonCorrespondiente.classList.add("correcta");
+
     palabraAdivinar.forEach((letr, index) => {
       if (letr === letra) {
         palabraMostrar[index] = letra;
@@ -133,6 +140,9 @@ function procesarLetra(letra) {
       reiniciarJuego();
     }
   } else {
+    // Añade la clase incorrecta al botón
+    if (botonCorrespondiente) botonCorrespondiente.classList.add("incorrecta");
+
     if (intentosRestantes > 0) {
       intentosRestantes--;
       logLetrasUser.push(letra);
@@ -150,6 +160,9 @@ function procesarLetra(letra) {
       reiniciarJuego();
     }
   }
+
+  // Deshabilita el botón tras usarlo
+  if (botonCorrespondiente) botonCorrespondiente.disabled = true;
 }
 
 function finalizarJuego() {
