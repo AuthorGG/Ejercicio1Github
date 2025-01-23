@@ -24,12 +24,8 @@ main {
   flex-direction: column;
   align-items: center;
   height: 100vh;
-}
-
-letra {
-  border: 10px;
-  margin: 100px;
-  color: rgb(190, 12, 12);
+  gap: 20px;
+  margin: 20px;
 }
 
 #teclado {
@@ -38,9 +34,16 @@ letra {
   align-items: center;
   margin-top: 50px;
 }
+
+.fila-teclado {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
 /* Botones con estilos */
 .tecla {
-  padding: 5px;
+  padding: 5px 10px;
   font-family: Arial, sans-serif;
   color: white;
   border: 2px solid #322891;
@@ -100,28 +103,17 @@ letra {
 }
 .correcta {
   background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-  padding: 12px;
-  font-size: 18px;
   color: white;
   border: 2px solid green;
   border-radius: 8px;
   text-align: center;
-  width: 50px;
-  height: 60px;
-  display: inline-block;
 }
 
 .incorrecta {
-  padding: 12px;
-  font-size: 18px;
   background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
   color: white;
   border: 2px solid red;
   border-radius: 8px;
-  text-align: center;
-  width: 50px;
-  height: 60px;
-  display: inline-block;
 }
 
 button:disabled {
@@ -233,20 +225,9 @@ button:disabled {
   background-color: #6a11cb;
 }
 
-@media (max-width: 600px) {
-  h1 {
-    font-size: 36px;
-  }
-}
 #teclado {
   grid-template-columns: repeat(5, 1fr);
   max-width: 90%;
-}
-
-.tecla {
-  width: 40px;
-  height: 50px;
-  font-size: 14px;
 }
 
 .palabra-oculta div {
