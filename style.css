@@ -233,67 +233,33 @@ button:disabled {
   background-color: #6a11cb;
 }
 
-/* Responsive @media
 @media (max-width: 600px) {
   h1 {
     font-size: 36px;
   }
-
-  #teclado {
-    grid-template-columns: repeat(5, 1fr);
-    max-width: 90%;
-  }
-
-  .tecla {
-    width: 40px;
-    height: 50px;
-    font-size: 14px;
-  }
-
-  .palabra-oculta div {
-    font-size: 18px;
-    width: 20px;
-    height: 30px;
-  }
-
-  #ahorcado {
-    width: 70px;
-    height: 140px;
-  }
-
-  .modal-content {
-    width: 90%;
-  }
+}
+#teclado {
+  grid-template-columns: repeat(5, 1fr);
+  max-width: 90%;
 }
 
-@media (min-width: 800px) {
-  h1 {
-    font-size: 48px;
-  }
+.tecla {
+  width: 40px;
+  height: 50px;
+  font-size: 14px;
+}
 
-  #teclado {
-    grid-template-columns: repeat(6, 1fr);
-    max-width: 90%;
-  }
+.palabra-oculta div {
+  font-size: 18px;
+  width: 20px;
+  height: 30px;
+}
 
-  .tecla {
-    width: 45px;
-    height: 55px;
-    font-size: 16px;
-  }
+#ahorcado {
+  width: 70px;
+  height: 140px;
+}
 
-  .palabra-oculta div {
-    font-size: 20px;
-    width: 25px;
-    height: 35px;
-  }
-
-  #ahorcado {
-    width: 80px;
-    height: 160px;
-  }
-
-  .modal-content {
-    width: 85%;
-  }
+.modal-content {
+  width: 90%;
 }
