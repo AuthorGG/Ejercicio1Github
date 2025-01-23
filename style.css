@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  height: 100%;
+  background: linear-gradient(135deg, #e8f2fc 0%, #b6cdf6 100%);
+}
+
 h1 {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
@@ -18,6 +24,7 @@ main {
   gap: 20px;
   margin: 20px;
 }
+
 .hidden {
   display: none;
 }
@@ -35,7 +42,6 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
 }
 
 .fila-teclado {
@@ -47,16 +53,17 @@ main {
 /* Botones con estilos */
 .tecla {
   padding: 5px 10px;
+  font-size: 25px;
   font-family: Arial, sans-serif;
   color: white;
   border: 2px solid #322891;
   border-radius: 5px;
   background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 2px #6a11cb;
   cursor: pointer;
-  margin: 2px 1px;
-  width: 55px;
-  height: 30px;
+  margin: 4px 2px;
+  width: 50px;
+  height: 50px;
   text-align: center;
   transition: all 0.3s ease;
 }
@@ -64,7 +71,8 @@ main {
 /* Hover Effect para botones */
 .tecla:hover {
   background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
-  transform: scale(1.05);
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
   color: black;
 }
 
@@ -92,23 +100,21 @@ main {
 .palabra-oculta {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 10px;
   margin: 20px 0;
 }
 .palabra-oculta div {
-  font-size: 24px;
+  font-size: 30px;
   font-weight: bold;
-  border-bottom: 2px solid #000;
-  width: 30px;
-  height: 40px;
-  line-height: 40px;
   text-align: center;
+  color: black;
 }
+
 .correcta {
   background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
   color: white;
   border: 2px solid green;
-  border-radius: 8px;
+  border-radius: 5px;
   text-align: center;
 }
 
@@ -116,7 +122,7 @@ main {
   background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
   color: white;
   border: 2px solid red;
-  border-radius: 8px;
+  border-radius: 5px;
 }
 
 button:disabled {
@@ -158,30 +164,47 @@ button:disabled {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: linear-gradient(135deg, #e8f2fc 0%, #b6cdf6 100%);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  display: none;
+  display: none; /* Oculto por defecto */
 }
 
 .modal-content {
-  background: white;
+  background: #e6eeff;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  box-shadow: 0 8px 20px #1d2fffcc;
   text-align: center;
   max-width: 400px;
   width: 90%;
 }
 
 .modal-content h2 {
+  margin-bottom: 20px;
+}
+
+.modal-content p {
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.modal-content select {
+  width: 70%;
+  padding: 8px;
+  font-size: 15px;
   margin-bottom: 10px;
+  border-radius: 12px;
+  border: 1px solid #6a11cb;
 }
 
 .modal-content button {
-  background-color: #007bff;
+  background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
   color: white;
   border: none;
   padding: 10px 20px;
@@ -191,7 +214,7 @@ button:disabled {
 }
 
 .modal-content button:hover {
-  background-color: #0056b3;
+  background: linear-gradient(135deg, #59a9ff 0%, #b279ef 100%);
 }
 
 .popup {
@@ -234,9 +257,9 @@ button:disabled {
 }
 
 .palabra-oculta div {
-  font-size: 18px;
-  width: 20px;
-  height: 30px;
+  font-size: 35px;
+  width: 50px;
+  height: 50px;
 }
 
 #ahorcado {
