@@ -233,34 +233,67 @@ button:disabled {
   background-color: #6a11cb;
 }
 
-#categoria-seleccion {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
 /* Responsive @media
 @media (max-width: 600px) {
   h1 {
-    font-size: 40px;
+    font-size: 36px;
   }
 
   #teclado {
-    grid-template-columns: repeat(3, 1fr);
-    max-width: 100%;
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 90%;
   }
 
   .tecla {
-    font-size: 16px;
-    padding: 10px;
+    width: 40px;
+    height: 50px;
+    font-size: 14px;
   }
+
+  .palabra-oculta div {
+    font-size: 18px;
+    width: 20px;
+    height: 30px;
+  }
+
+  #ahorcado {
+    width: 70px;
+    height: 140px;
+  }
+
+  .modal-content {
+    width: 90%;
+  }
+}
+
+@media (min-width: 800px) {
+  h1 {
+    font-size: 48px;
+  }
+
+  #teclado {
+    grid-template-columns: repeat(6, 1fr);
+    max-width: 90%;
+  }
+
+  .tecla {
+    width: 45px;
+    height: 55px;
+    font-size: 16px;
+  }
+
   .palabra-oculta div {
     font-size: 20px;
     width: 25px;
     height: 35px;
-    line-height: 35px;
   }
-} */
+
+  #ahorcado {
+    width: 80px;
+    height: 160px;
+  }
+
+  .modal-content {
+    width: 85%;
+  }
+}
