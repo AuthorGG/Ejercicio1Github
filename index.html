@@ -9,6 +9,7 @@
   </head>
   <body>
     <header>
+      <div id="main-content" class="hidden">
       <h1>El Ahorcado.</h1>
     </header>
     <main>
@@ -24,27 +25,7 @@
         <img class="parte" src="el-ahorcado.6.jpg" alt="pierna izquierda" />
       </div>
 
-      <div id="modal" class="modal">
-        <div class="modal-content">
-          <h2>¡Bienvenido al juego del Ahorcado!</h2>
-          <p>Elige una categoría para empezar:</p>
-          <select id="categoria-seleccion">
-            <option value="simpsons">Los Simpsons</option>
-            <option value="digimon">Digimon</option>
-            <option value="pokemon">Pokemon</option>
-          </select>
-          <p>¡Haz clic en el botón para iniciar el juego!</p>
-          <button id="modal-iniciar-juego">Iniciar</button>
-        </div>
-      </div>
-
-      <div id="mensaje-popup" class="popup">
-        <div class="popup-contenido">
-          <p id="mensaje-resultado"></p>
-          <button id="cerrar-popup">Reiniciar Juego</button>
-        </div>
-      </div>
-
+      
       <div id="teclado">
       <div class="fila-teclado">
         <button class="tecla">Q</button>
@@ -79,6 +60,28 @@
         <button class="tecla">N</button>
         <button class="tecla">M</button>
       </div>
+    </div>
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <h2>¡Bienvenido al juego del Ahorcado!</h2>
+          <p>Elige una categoría para empezar:</p>
+          <select id="categoria-seleccion">
+            <option value="simpsons">Los Simpsons</option>
+            <option value="digimon">Digimon</option>
+            <option value="pokemon">Pokemon</option>
+          </select>
+          <p>¡Haz clic en el botón para iniciar el juego!</p>
+          <button id="modal-iniciar-juego">Iniciar</button>
+        </div>
+      </div>
+
+      <div id="mensaje-popup" class="popup">
+        <div class="popup-contenido">
+          <p id="mensaje-resultado"></p>
+          <button id="cerrar-popup">Reiniciar Juego</button>
+        </div>
+      </div>
+
     </main>
     <script src="script.js"></script>
   </body>

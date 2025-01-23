@@ -51,19 +51,26 @@ let logLetrasUser = [];
 let intentosRestantes = 6;
 
 document.addEventListener("DOMContentLoaded", () => {
+  const mainContent = document.getElementById("main-content");
+  mainContent.classList.add("hidden");
   const modal = document.getElementById("modal");
   const closeModalButton = document.getElementById("modal-iniciar-juego");
-
+  const teclado = document.getElementById("teclado");
+  teclado.style.display = "none";
   const categoriaSeleccion = document.getElementById("categoria-seleccion");
 
   // Mostrar el modal al cargar
-  modal.style.display = "flex";
+  modal.style.display = "block";
 
   // Cerrar el modal y seleccionar categoría
   closeModalButton.addEventListener("click", () => {
     const categoriaElegida = categoriaSeleccion.value;
     listaDePalabras = palabrasPorCategoria[categoriaElegida];
     modal.style.display = "none";
+    mainContent.classList.remove("hidden");
+    modal.style.display = "none";
+    teclado.style.display = "flex";
+    reiniciarTeclado();
     prepJuego(); // Inicia el juego
   });
 });
@@ -78,6 +85,7 @@ botonesTeclado.forEach((boton) => {
 
 // Función para reiniciar el estado de los botones
 function reiniciarTeclado() {
+  const botonesTeclado = document.querySelectorAll(".tecla");
   botonesTeclado.forEach((boton) => {
     boton.disabled = false;
     boton.classList.remove("correcta", "incorrecta");
@@ -245,6 +253,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Cerrar el modal al hacer clic en el botón
   closeModalButton.addEventListener("click", () => {
     modal.style.display = "none";
+    reiniciarTeclado();
+    prepJuego();
   });
 });
 
