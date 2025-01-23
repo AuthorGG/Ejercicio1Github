@@ -1,16 +1,50 @@
 "use strict";
 
 const palabrasPorCategoria = {
-  animales: ["perro", "gato", "murcielago", "elefante", "tigre"],
-  objetos: ["botella", "escritorio", "paraguas", "televisor", "laptop"],
-  lugares: ["playa", "desierto", "montaña", "bosque", "ciudad"],
+  simpsons: [
+    "Homer",
+    "lisa",
+    "Marge",
+    "Bart",
+    "Maggie",
+    "Barney",
+    "Moe",
+    "Otto",
+    "Ralph",
+    "Nelson",
+    "Seymour",
+  ],
+  digimon: [
+    "Agumon",
+    "Gabumon",
+    "Patamon",
+    "Tentomon",
+    "Biyomon",
+    "Gatomon",
+    "Greymon",
+    "Angemon",
+    "MetalGarurumon",
+  ],
+  pokemon: [
+    "Pikachu",
+    "Charmander",
+    "Bulbasaur",
+    "Squirtle",
+    "Eevee",
+    "Jigglypuff",
+    "Snorlax",
+    "Mewtwo",
+    "Gengar",
+  ],
 };
 
-let listaDePalabras = [];
+//elementos del DOM
 const palabraOcultaDiv = document.getElementById("palabra-oculta");
 const intentosRestantesDiv = document.getElementById("intentosRestantes");
 const botonesTeclado = document.querySelectorAll(".tecla");
 
+//variables globales
+let listaDePalabras = [];
 let palabraAdivinar = [];
 let palabraMostrar = [];
 let logLetrasUser = [];
@@ -18,7 +52,8 @@ let intentosRestantes = 6;
 
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("modal");
-  const closeModalButton = document.getElementById("close-modal");
+  const closeModalButton = document.getElementById("modal-iniciar-juego");
+
   const categoriaSeleccion = document.getElementById("categoria-seleccion");
 
   // Mostrar el modal al cargar
@@ -36,22 +71,18 @@ document.addEventListener("DOMContentLoaded", () => {
 botonesTeclado.forEach((boton) => {
   boton.addEventListener("click", () => {
     const letra = boton.textContent;
-    if (palabraAdivinar.includes(letra)) {
-      boton.classList.add("correcta");
-      boton.classList.remove("tecla");
-    } else {
-      boton.classList.add("incorrecta");
-      boton.classList.remove("tecla");
-    }
-
-    boton.disabled = true;
+    boton.disabled = true; // Deshabilita el botón al usarlo
     procesarLetra(letra);
   });
+});
+
+// Función para reiniciar el estado de los botones
+function reiniciarTeclado() {
   botonesTeclado.forEach((boton) => {
     boton.disabled = false;
     boton.classList.remove("correcta", "incorrecta");
   });
-});
+}
 
 // Función para mostrar el popup
 function mostrarPopup(mensaje) {
@@ -193,7 +224,7 @@ function mostrarLineas(palabra) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("modal");
-  const closeModalButton = document.getElementById("close-modal");
+  const closeModalButton = document.getElementById("modal-iniciar-juego");
 
   // Mostrar el modal
   modal.style.display = "flex";
@@ -201,7 +232,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Cerrar el modal al hacer clic en el botón
   closeModalButton.addEventListener("click", () => {
     modal.style.display = "none";
-    prepJuego(); // Inicia el juego
   });
 });
 
@@ -213,4 +243,27 @@ function reiniciarAhorcado() {
   partesAhorcado.forEach((parte) => {
     parte.style.display = "none"; // Oculta cada parte
   });
+  prepJuego(); // Inicia el juego
+}
+
+function gameOver() {
+  if (document.querySelector(".state-nodisplay") != null) {
+    let gameOver = document.querySelector(".state-nodisplay");
+    gameOver.classList.remove("state-nodisplay");
+
+    const game = document.createElement("div");
+    game.textContent = "GAME"; /*palabra[i].toUpperCase()*/
+
+    const over = document.createElement("div");
+    over.textContent = "OVER"; /*palabra[i].toUpperCase()*/
+
+    gameOver.append(game);
+    gameOver.append(over);
+
+    gameOver.classList.add("stateAnimation", "gameOver");
+
+    window.endgame = true;
+    play("audio/lose.mp3");
+  }
+  return;
 }
