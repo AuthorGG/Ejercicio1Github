@@ -76,6 +76,17 @@ function mostrarModalInicial() {
 const popup = document.getElementById("mensaje-popup");
 popup.style.display = "none";
 
+document.addEventListener("keydown", (evento) => {
+  const letraPresionada = evento.key.toUpperCase();
+  const botonCorrespondiente = Array.from(botonesTeclado).find(
+    (boton) => boton.textContent === letraPresionada
+  );
+
+  if (botonCorrespondiente && !botonCorrespondiente.disabled) {
+    procesarLetra(letraPresionada, botonCorrespondiente);
+  }
+});
+
 function procesarLetra(letra) {
   if (palabraAdivinar.includes(letra)) {
     palabraAdivinar.forEach((letr, index) => {
