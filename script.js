@@ -3,7 +3,7 @@
 const palabrasPorCategoria = {
   simpsons: [
     "Homer",
-    "lisa",
+    "Lisa",
     "Marge",
     "Bart",
     "Maggie",
@@ -38,17 +38,18 @@ const palabrasPorCategoria = {
   ],
 };
 
-//elementos del DOM
+// elementos del DOM
 const palabraOcultaDiv = document.getElementById("palabra-oculta");
 const intentosRestantesDiv = document.getElementById("intentosRestantes");
 const botonesTeclado = document.querySelectorAll(".tecla");
+const tituloCategoria = document.getElementById("titulo-categoria");
 
-//variables globales
+// variables globales
 let listaDePalabras = [];
 let palabraAdivinar = [];
 let palabraMostrar = [];
 let logLetrasUser = [];
-let intentosRestantes = 6;
+let intentosRestantes = 8;
 
 document.addEventListener("DOMContentLoaded", () => {
   const mainContent = document.getElementById("main-content");
@@ -72,16 +73,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     audioSilenciado = !audioSilenciado;
   };
+
   // Mostrar el modal al cargar
-  modal.style.display = "block";
+  modal.style.display = "flex";
 
   // Cerrar el modal y seleccionar categoría
   closeModalButton.addEventListener("click", () => {
     const categoriaElegida = categoriaSeleccion.value;
+    if (!palabrasPorCategoria[categoriaElegida]) {
+      alert("Categoría no válida. Por favor, selecciona una categoría válida.");
+      return;
+    }
     listaDePalabras = palabrasPorCategoria[categoriaElegida];
+    tituloCategoria.textContent = categoriaElegida.toUpperCase();
     modal.style.display = "none";
     mainContent.classList.remove("hidden");
-    modal.style.display = "none";
     teclado.style.display = "flex";
     botonSilenciar.classList.remove("hidden");
     botonSilenciar.classList.add("boton-silenciar");
@@ -179,7 +185,7 @@ function procesarLetra(letra) {
       intentosRestantes--;
       logLetrasUser.push(letra);
       actualizarIntentos();
-      enseñarAhorcado();
+      mostrarAhorcado();
     }
 
     if (intentosRestantes === 0) {
@@ -203,10 +209,10 @@ function finalizarJuego() {
   });
 }
 
-function enseñarAhorcado() {
+function mostrarAhorcado() {
   const partes = document.querySelectorAll(".parte");
-  const indice = 5 - intentosRestantes;
   partes.forEach((parte) => (parte.style.display = "none"));
+  const indice = 8 - intentosRestantes;
   if (indice >= 0 && indice < partes.length) {
     partes[indice].style.display = "block";
   }
@@ -219,18 +225,13 @@ function actualizarPalabra() {
   });
 }
 function reiniciarJuego() {
-  intentosRestantes = 6;
+  intentosRestantes = 8;
   let pickListaPalabras = Math.floor(Math.random() * listaDePalabras.length);
-  console.log(pickListaPalabras);
   const palabraAleatoria = listaDePalabras[pickListaPalabras].toUpperCase();
-  console.log(palabraAleatoria);
   palabraAdivinar = palabraAleatoria.split("");
   palabraMostrar = Array(palabraAdivinar.length).fill("");
-  console.log(palabraAdivinar);
   let letrasCorrectas = Array(palabraAdivinar.length).fill("");
-  console.log(letrasCorrectas);
-  // const modal = document.getElementById("modal");
-  // modal.style.display = "flex";
+
   botonesTeclado.forEach((boton) => {
     boton.disabled = false;
     boton.classList.remove("correcta", "incorrecta");
@@ -242,11 +243,10 @@ function reiniciarJuego() {
 }
 
 function prepJuego() {
-  intentosRestantes = 6;
+  intentosRestantes = 8;
   let pickListaPalabras = Math.floor(Math.random() * listaDePalabras.length);
-  console.log(pickListaPalabras);
   const palabraAleatoria = listaDePalabras[pickListaPalabras].toUpperCase();
-  console.log(palabraAleatoria);
+  console.log(pickListaPalabras);
   palabraAdivinar = palabraAleatoria.split("");
   palabraMostrar = Array(palabraAdivinar.length).fill("");
   console.log(palabraAdivinar);
@@ -255,6 +255,16 @@ function prepJuego() {
 
   mostrarLineas(palabraAdivinar);
   actualizarIntentos();
+
+  const partesAhorcado = document.querySelectorAll("#ahorcado .parte");
+  partesAhorcado.forEach((parte, index) => {
+    if (index === 0) {
+      // Solo mostramos la BASE
+      parte.style.display = "block";
+    } else {
+      parte.style.display = "none";
+    }
+  });
 }
 
 function mostrarLineas(palabra) {
@@ -285,12 +295,16 @@ document.addEventListener("DOMContentLoaded", () => {
 function actualizarIntentos() {
   intentosRestantesDiv.textContent = `Intentos restantes: ${intentosRestantes}`;
 }
+
 function reiniciarAhorcado() {
   const partesAhorcado = document.querySelectorAll("#ahorcado .parte");
-  partesAhorcado.forEach((parte) => {
-    parte.style.display = "none"; // Oculta cada parte
+  partesAhorcado.forEach((parte, index) => {
+    if (index === 0) {
+      parte.style.display = "block"; // Muestra la base
+    } else {
+      parte.style.display = "none"; // Oculta el resto
+    }
   });
-  prepJuego(); // Inicia el juego
 }
 
 const audioPorCategoria = {
