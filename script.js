@@ -13,6 +13,17 @@ const palabrasPorCategoria = {
     "Ralph",
     "Nelson",
     "Seymour",
+    "Milhouse",
+    "Apu",
+    "Krusty",
+    "Lenny",
+    "Carl",
+    "Ned",
+    "Maude",
+    "Edna",
+    "Patty",
+    "Selma",
+    "Montgomery",
   ],
   digimon: [
     "Agumon",
@@ -24,6 +35,9 @@ const palabrasPorCategoria = {
     "Greymon",
     "Angemon",
     "MetalGarurumon",
+    "Gomamon",
+    "Palmon",
+    "kabuterimon",
   ],
   pokemon: [
     "Pikachu",
@@ -42,7 +56,8 @@ const palabrasPorCategoria = {
 const palabraOcultaDiv = document.getElementById("palabra-oculta");
 const intentosRestantesDiv = document.getElementById("intentosRestantes");
 const botonesTeclado = document.querySelectorAll(".tecla");
-
+const audioVictoria = document.getElementById("audioVictoria");
+const audioDerrota = document.getElementById("audioDerrota");
 //variables globales
 let listaDePalabras = [];
 let palabraAdivinar = [];
@@ -121,12 +136,22 @@ function mostrarPopup(mensaje) {
   const popup = document.getElementById("mensaje-popup");
   const mensajeResultado = document.getElementById("mensaje-resultado");
   const cerrarPopup = document.getElementById("cerrar-popup");
+  const audioElemento = document.getElementById("audio-categoria");
+
+  if (!audioElemento.paused) {
+    audioElemento.pause();
+    audioElemento.currentTime = 0; // Reinicia el audio
+  }
 
   mensajeResultado.textContent = mensaje;
   popup.style.display = "flex";
 
   cerrarPopup.addEventListener("click", () => {
     popup.style.display = "none";
+    audioVictoria.pause();
+    audioVictoria.currentTime = 0;
+    audioDerrota.pause();
+    audioDerrota.currentTime = 0;
     mostrarModalInicial();
   });
 }
@@ -168,6 +193,9 @@ function procesarLetra(letra) {
 
     if (palabraMostrar.join("") === palabraAdivinar.join("")) {
       mostrarPopup("¡Enhorabuena! ¡Has acertado! 🎉");
+      audioVictoria.play();
+      audioVictoria.volume = 0.8; // Ajustar el volumen
+
       finalizarJuego();
       reiniciarJuego();
     }
@@ -188,6 +216,8 @@ function procesarLetra(letra) {
           ""
         )}`
       );
+      audioDerrota.play();
+      audioDerrota.volume = 0.8;
       finalizarJuego();
       reiniciarJuego();
     }
@@ -229,8 +259,7 @@ function reiniciarJuego() {
   console.log(palabraAdivinar);
   let letrasCorrectas = Array(palabraAdivinar.length).fill("");
   console.log(letrasCorrectas);
-  // const modal = document.getElementById("modal");
-  // modal.style.display = "flex";
+
   botonesTeclado.forEach((boton) => {
     boton.disabled = false;
     boton.classList.remove("correcta", "incorrecta");
@@ -277,6 +306,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Cerrar el modal al hacer clic en el botón
   closeModalButton.addEventListener("click", () => {
     modal.style.display = "none";
+
     reiniciarTeclado();
     prepJuego();
   });
