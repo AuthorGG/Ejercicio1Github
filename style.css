@@ -270,3 +270,22 @@ button:disabled {
 .modal-content {
   width: 90%;
 }
+
+#boton-silenciar {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #2575fc;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex; /* Oculto al principio */
+}
+
+#boton-silenciar:hover {
+  background-color: #6a11cb;
+}

@@ -55,10 +55,23 @@ document.addEventListener("DOMContentLoaded", () => {
   mainContent.classList.add("hidden");
   const modal = document.getElementById("modal");
   const closeModalButton = document.getElementById("modal-iniciar-juego");
+  const audioElemento = document.getElementById("audio-categoria");
+  const botonSilenciar = document.getElementById("boton-silenciar");
   const teclado = document.getElementById("teclado");
   teclado.style.display = "none";
   const categoriaSeleccion = document.getElementById("categoria-seleccion");
+  let audioSilenciado = false;
 
+  const alternarAudio = () => {
+    if (audioSilenciado) {
+      audioElemento.muted = false;
+      botonSilenciar.textContent = "🔊";
+    } else {
+      audioElemento.muted = true;
+      botonSilenciar.textContent = "🔇";
+    }
+    audioSilenciado = !audioSilenciado;
+  };
   // Mostrar el modal al cargar
   modal.style.display = "block";
 
@@ -70,9 +83,20 @@ document.addEventListener("DOMContentLoaded", () => {
     mainContent.classList.remove("hidden");
     modal.style.display = "none";
     teclado.style.display = "flex";
+    botonSilenciar.classList.remove("hidden");
+    botonSilenciar.classList.add("boton-silenciar");
+
+    if (audioPorCategoria[categoriaElegida]) {
+      audioElemento.src = audioPorCategoria[categoriaElegida];
+      audioElemento.play();
+      audioElemento.loop = true; // Hacer que el audio se repita
+    }
     reiniciarTeclado();
     prepJuego(); // Inicia el juego
   });
+  botonSilenciar.classList.remove("hidden");
+
+  botonSilenciar.addEventListener("click", alternarAudio);
 });
 
 botonesTeclado.forEach((boton) => {
@@ -268,6 +292,12 @@ function reiniciarAhorcado() {
   });
   prepJuego(); // Inicia el juego
 }
+
+const audioPorCategoria = {
+  simpsons: "resources/audios/simpsons.mp3",
+  digimon: "resources/audios/digimon.mp3",
+  pokemon: "resources/audios/pokemon.mp3",
+};
 
 function gameOver() {
   if (document.querySelector(".state-nodisplay") != null) {
