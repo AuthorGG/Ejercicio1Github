@@ -7,8 +7,8 @@
 html,
 body {
   margin: 0;
-  padding: 0;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
   height: 100%;
   background: linear-gradient(135deg, #e8f2fc 0%, #b6cdf6 100%);
 }
@@ -24,12 +24,64 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   gap: 20px;
-  margin: 20px;
+  margin: 0;
+  padding: 0;
+  flex-grow: 0;
+  overflow: hidden;
 }
 
 .hidden {
   display: none;
+}
+
+footer {
+  height: auto;
+  margin-top: auto;
+  background-color: #333;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px;
+  box-sizing: border-box;
+  flex-grow: 0;
+  width: 100%;
+}
+
+/* Contenedor de las dos primeras columnas */
+.footer-contenedor {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-celda.imagen,
+.footer-celda.texto {
+  flex: none;
+  text-align: left;
+}
+
+.footer-celda.texto {
+  text-align: left;
+}
+
+.footer-celda.imagen {
+  text-align: right;
+}
+
+.logo-footer {
+  max-width: 100px;
+  height: auto;
+}
+
+.footer-copyright {
+  text-align: center;
+  padding: 10px 0;
+  background-color: #222;
+  width: 100%;
 }
 
 #contenedor-principal {
@@ -39,21 +91,33 @@ main {
   justify-content: space-between;
   gap: 20px;
   margin: 20px;
-  height: 100%;
+  flex-grow: 1;
 }
 
 #titulo-categoria {
   text-align: center;
   font-family: Arial, sans-serif;
   font-size: 30px;
+  margin-top: 1.5vw;
   margin-bottom: 20px;
   color: #444;
+}
+
+.intentos {
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  text-align: center;
 }
 
 #teclado {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .fila-teclado {
@@ -80,7 +144,6 @@ main {
   transition: all 0.3s ease;
 }
 
-/* Hover Effect para botones */
 .tecla:hover {
   background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
   transform: translateY(2px);
@@ -99,10 +162,10 @@ main {
   justify-content: center;
   align-items: center;
   position: relative;
-  max-height: 40%;
+  max-height: 30%;
   width: 100px;
-  height: 200px;
-  margin: 40px auto;
+  height: 180px;
+  margin: 25px auto;
 }
 
 #ahorcado .parte {
@@ -110,14 +173,12 @@ main {
   width: 180px;
   height: auto;
   margin: 0 auto;
-  padding-top: 50px;
-  padding-bottom: 30px;
 }
 .palabra-oculta {
   display: flex;
   justify-content: center;
   gap: 10px;
-  padding-top: 30px;
+  padding-top: 20px;
   max-height: 10%;
 }
 .palabra-oculta div {
@@ -199,7 +260,7 @@ button:disabled {
   width: 90%;
 }
 
-.modal-content h2 {
+.modal-content h1 {
   margin-bottom: 20px;
 }
 
@@ -319,4 +380,76 @@ button:disabled {
 
 #boton-silenciar:hover {
   background-color: #6a11cb;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 40px;
+  }
+  .tecla {
+    width: 8vw;
+    height: 8vw;
+    font-size: 1.8vw;
+  }
+  .modal-content {
+    max-width: 300px;
+  }
+}
+@media (max-width: 768px) {
+  main {
+    padding: 10px;
+    gap: 15px;
+  }
+
+  #contenedor-principal {
+    margin: 10px;
+  }
+}
+@media (max-width: 768px) {
+  #teclado {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .palabra-oculta div {
+    font-size: 6vw;
+    width: 5vw;
+    height: 5vw;
+  }
+
+  @media (max-width: 768px) {
+    footer {
+      padding: 15px 5%;
+      font-size: 0.9rem;
+    }
+
+    .footer-contenedor {
+      padding: 10px 5%;
+    }
+
+    .footer-celda {
+      margin: 5px 0;
+    }
+
+    .footer-copyright {
+      font-size: 0.7rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 30px;
+    }
+    .tecla {
+      width: 12vw;
+      height: 12vw;
+      font-size: 2.5vw;
+    }
+    .palabra-oculta div {
+      font-size: 20px;
+      width: 40px;
+      height: 40px;
+    }
+  }
 }
