@@ -13,17 +13,6 @@ const palabrasPorCategoria = {
     "Ralph",
     "Nelson",
     "Seymour",
-    "Milhouse",
-    "Apu",
-    "Krusty",
-    "Lenny",
-    "Carl",
-    "Ned",
-    "Maude",
-    "Edna",
-    "Patty",
-    "Selma",
-    "Montgomery",
   ],
   digimon: [
     "Agumon",
@@ -35,9 +24,6 @@ const palabrasPorCategoria = {
     "Greymon",
     "Angemon",
     "MetalGarurumon",
-    "Gomamon",
-    "Palmon",
-    "kabuterimon",
   ],
   pokemon: [
     "Pikachu",
@@ -56,15 +42,11 @@ const palabrasPorCategoria = {
 const palabraOcultaDiv = document.getElementById("palabra-oculta");
 const intentosRestantesDiv = document.getElementById("intentosRestantes");
 const botonesTeclado = document.querySelectorAll(".tecla");
-
 const audioVictoria = document.getElementById("audioVictoria");
 const audioDerrota = document.getElementById("audioDerrota");
-//variables globales
-
 const tituloCategoria = document.getElementById("titulo-categoria");
 
 // variables globales
-
 let listaDePalabras = [];
 let palabraAdivinar = [];
 let palabraMostrar = [];
@@ -153,8 +135,7 @@ function mostrarPopup(mensaje) {
     audioElemento.pause();
     audioElemento.currentTime = 0; // Reinicia el audio
   }
-
-  mensajeResultado.textContent = mensaje;
+  mensajeResultado.innerHTML = mensaje;
   popup.style.display = "flex";
 
   cerrarPopup.addEventListener("click", () => {
@@ -205,8 +186,7 @@ function procesarLetra(letra) {
     if (palabraMostrar.join("") === palabraAdivinar.join("")) {
       mostrarPopup("¡Enhorabuena! ¡Has acertado! 🎉");
       audioVictoria.play();
-      audioVictoria.volume = 0.8; // Ajustar el volumen
-
+      audioVictoria.volume = 0.6; // Ajustar el volumen
       finalizarJuego();
       reiniciarJuego();
     }
@@ -222,15 +202,17 @@ function procesarLetra(letra) {
     }
 
     if (intentosRestantes === 0) {
-      mostrarPopup(
-        `¡Lo siento! No hay más intentos. 😞 La palabra oculta era: ${palabraAdivinar.join(
-          ""
-        )}`
-      );
-      audioDerrota.play();
-      audioDerrota.volume = 0.8;
-      finalizarJuego();
-      reiniciarJuego();
+      setTimeout(() => {
+        mostrarPopup(
+          `¡Lo siento! No hay más intentos. 😞 La palabra oculta era: <strong>${palabraAdivinar.join(
+            ""
+          )}</strong>`
+        );
+        audioDerrota.play();
+        audioDerrota.volume = 0.6;
+        finalizarJuego();
+        reiniciarJuego();
+      }, 200);
     }
   }
 
@@ -266,7 +248,6 @@ function reiniciarJuego() {
   palabraAdivinar = palabraAleatoria.split("");
   palabraMostrar = Array(palabraAdivinar.length).fill("");
   let letrasCorrectas = Array(palabraAdivinar.length).fill("");
-
 
   botonesTeclado.forEach((boton) => {
     boton.disabled = false;
@@ -323,7 +304,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Cerrar el modal al hacer clic en el botón
   closeModalButton.addEventListener("click", () => {
     modal.style.display = "none";
-
     reiniciarTeclado();
     prepJuego();
   });
@@ -349,25 +329,3 @@ const audioPorCategoria = {
   digimon: "resources/audios/digimon.mp3",
   pokemon: "resources/audios/pokemon.mp3",
 };
-
-function gameOver() {
-  if (document.querySelector(".state-nodisplay") != null) {
-    let gameOver = document.querySelector(".state-nodisplay");
-    gameOver.classList.remove("state-nodisplay");
-
-    const game = document.createElement("div");
-    game.textContent = "GAME"; /*palabra[i].toUpperCase()*/
-
-    const over = document.createElement("div");
-    over.textContent = "OVER"; /*palabra[i].toUpperCase()*/
-
-    gameOver.append(game);
-    gameOver.append(over);
-
-    gameOver.classList.add("stateAnimation", "gameOver");
-
-    window.endgame = true;
-    play("audio/lose.mp3");
-  }
-  return;
-}
