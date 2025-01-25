@@ -29,7 +29,6 @@ main {
   margin: 0;
   padding: 0;
   flex-grow: 0;
-  overflow: hidden;
 }
 
 .hidden {
@@ -44,7 +43,7 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 5px;
+  padding: 20px;
   box-sizing: border-box;
   flex-grow: 0;
   width: 100%;
@@ -422,6 +421,7 @@ button:disabled {
     footer {
       padding: 15px 5%;
       font-size: 0.9rem;
+      z-index: 2;
     }
 
     .footer-contenedor {
