@@ -215,11 +215,13 @@ function procesarLetra(letra) {
     actualizarPalabra();
 
     if (palabraMostrar.join("") === palabraAdivinar.join("")) {
-      mostrarPopup("¡Enhorabuena! ¡Has acertado! 🎉");
-      audioVictoria.play();
-      audioVictoria.volume = 0.6; // Ajustar el volumen
-      finalizarJuego();
-      reiniciarJuego();
+      setTimeout(() => {
+        mostrarPopup("¡Enhorabuena! ¡Has acertado! 🎉");
+        audioVictoria.play();
+        audioVictoria.volume = 0.6; // Ajustar el volumen
+        finalizarJuego();
+        reiniciarJuego();
+      }, 200);
     }
   } else {
     // Añade la clase incorrecta al botón
