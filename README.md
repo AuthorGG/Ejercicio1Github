@@ -1,94 +1,50 @@
-Instrucciones del juego
+Juego del Ahorcado
 
-Al hacer click en "Generar palabra", se generará una palabra aleatoria oculta.
+Este es un juego del Ahorcado interactivo desarrollado con HTML, CSS y JavaScript. Incluye funcionalidad de selección de categorías, un sistema de control de intentos, música de fondo según la categoría elegida y un sonido de victoria al ganar.
 
-Haz clic en las letras del teclado virtual para intentar adivinar la palabra.
+Características principales
 
-Cada letra correcta se mostrará en su posición correspondiente.
+Selección de categorías al inicio del juego: "Los Simpsons", "Digimon" y "Pokemon".
 
-Cada letra incorrecta reducirá el número de intentos restantes y se mostrará en una lista de "letras usadas".
+Música de fondo específica para cada categoría.
 
-El juego terminará cuando:
+Diseño visual atractivo con una progresión del ahorcado en 6 etapas.
 
-Descubras todas las letras de la palabra (Ganaste).
+Botón para silenciar/activar el audio de fondo.
 
-Te quedes sin intentos (Has perdido).
+Reproducción de un sonido de victoria al ganar.
 
-@media (max-width: 800px) {
-#ahorcado {
-width: 120px;
-height: 200px;
-}
+Función de reinicio del juego.
 
-.palabra-oculta div {
-font-size: 28px;
-width: 40px;
-height: 40px;
-}
+Uso
 
-#teclado .tecla {
-width: 45px;
-height: 45px;
-font-size: 20px;
-}
+Selecciona una categoría al iniciar el juego:
 
-#titulo-categoria {
-font-size: 24px;
-}
+Aparecerá un modal con las opciones "Los Simpsons", "Digimon" y "Pokemon".
 
-main {
-gap: 15px;
-}
+Haz clic en el botón "Iniciar" para empezar.
 
-.modal-content {
-padding: 15px;
-font-size: 14px;
-}
-}
+Adivina la palabra:
 
-@media (max-width: 600px) {
-#ahorcado {
-width: 100px;
-height: 180px;
-}
+Usa el teclado en pantalla para seleccionar letras.
 
-.palabra-oculta div {
-font-size: 24px;
-width: 35px;
-height: 35px;
-}
+Cada intento incorrecto hará que se añadan partes al ahorcado.
 
-#teclado .tecla {
-width: 40px;
-height: 40px;
-font-size: 18px;
-}
+Sonidos y música:
 
-#titulo-categoria {
-font-size: 20px;
-}
+Se reproduce música de fondo específica según la categoría seleccionada.
 
-main {
-gap: 10px;
-padding: 10px;
-}
+Un botón de silenciar (🔊/🔇) te permite pausar o reanudar el audio de fondo.
 
-.modal-content {
-padding: 10px;
-font-size: 12px;
-}
+Al ganar, se reproducirá un sonido de victoria.
 
-.popup-contenido p {
-font-size: 14px;
-}
+Reinicia el juego:
 
-#cerrar-popup {
-font-size: 12px;
-padding: 6px 12px;
-}
+Si ganas o pierdes, puedes reiniciar el juego haciendo clic en "Reiniciar Juego".
 
-#boton-silenciar {
-font-size: 18px;
-padding: 8px;
-}
-}
+Créditos
+
+Este proyecto fue desarrollado como una práctica interactiva para aprender y mejorar habilidades de programación web con HTML, CSS y JavaScript durante el bootcamp de Hack a Boss, los miembros del proyecto fueron:
+Carlos Curiel
+Elba López
+Zoe Ruiz
