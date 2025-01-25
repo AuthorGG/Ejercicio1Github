@@ -10,14 +10,13 @@
   <body>
     <header>
       <div id="main-content" class="hidden">
-      <h1></h1>
     </header>
     <main>
       <audio id="audio-categoria" src="" preload="auto" class="hidden"></audio>
       <audio id="audioVictoria"src="resources/audios/FFVII.mp3" class="hidden" preload="auto"></audio>
       <audio id="audioDerrota" src="resources/audios/marioderrota.mp3" class="hidden" preload="auto"></audio>
       <button id="boton-silenciar" class="hidden">🔊</button>
-      <h2 id="titulo-categoria"></h2>
+      <h1 id="titulo-categoria"></h1>
       <div id="ahorcado">
         <img class="parte" src="imagenes/1.png" alt="barra" />
         <img class="parte" src="imagenes/2.png" alt="barra dos" />
@@ -32,6 +31,8 @@
 
 <div class="palabra-oculta" id="palabra-oculta"></div>
 
+
+ <div class="intentos" id="intentosRestantes"></div>
       <div id="teclado">
       <div class="fila-teclado">
         <button class="tecla">Q</button>
@@ -67,7 +68,6 @@
         <button class="tecla">M</button>
       </div>
     </div>
-    <div class="intentos" id="intentosRestantes"></div>
       <div id="modal" class="modal">
         <div class="modal-content">
           <h2>¡Bienvenido al juego del Ahorcado!</h2>
@@ -87,11 +87,32 @@
           <p id="mensaje-resultado"></p>
           <button id="cerrar-popup">Reiniciar Juego</button>
         </div>
-
       </div>
-
     </main> 
-    
+    <footer>
+  <div class="footer-contenedor">
+    <!-- Columna 1: Texto alineado a la izquierda -->
+    <div class="footer-celda texto">
+      <p>
+        Desarrollado por:<br />
+        <br />
+        Carlos Curiel<br />
+        Elba López<br />
+        Zoe Ruiz
+      </p>
+    </div>
+
+    <!-- Columna 2: Imagen alineada a la derecha -->
+    <div class="footer-celda imagen">
+      <img src="imagenes/logotipo_hack_a_boss.png" alt="Logo de la escuela" class="logo-footer" />
+    </div>
+  </div>
+
+  <!-- Fila 3: Copyright -->
+  <div class="footer-copyright">
+    <p>&copy; 2025 Juego del Ahorcado. Todos los derechos reservados.</p>
+  </div>
+</footer>
     <script src="script.js"></script>
   </body>
 </html>
